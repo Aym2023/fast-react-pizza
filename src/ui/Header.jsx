@@ -4,7 +4,7 @@ import SearchOrder from "../features/order/SearchOrder";
 
 function Header() {
     return (
-        <header>
+        <header className="bg-yellow-500">
             <Link to='/' >fast react pizza Co.</Link>
 
             <SearchOrder />
