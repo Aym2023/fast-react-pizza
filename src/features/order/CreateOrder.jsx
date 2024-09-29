@@ -58,7 +58,7 @@ function CreateOrder() {
           <div>
             <input type="tel" name="phone" required />
           </div>
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
+          { formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
 
         <div>
@@ -81,7 +81,8 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name= 'cart' value={JSON.stringify(cart)} />
-          <button disabled={isSubmitting}>
+          <button disabled={isSubmitting} className="bg-yellow-400 uppercase font-semibold text-stone-800 py-3 px-4 inline-block tracking-wide rounded-full hover:bg-yellow-300 transition-colors duration: 300 focus:outline-none focus:ring first-letter focus:ring-yellow-300 focus:ring-offset-2 active:bg-stone-400 disabled:cursor-not-allowed disabled:bg-slate-600
+          ">
             {isSubmitting ? "Placing Order..."  : "Order Now"}
             </button>
         </div>
@@ -108,10 +109,12 @@ if (Object.keys(errors).length > 0 ) return errors;
 
 
 // if every thing is okay,  create new order and new redirect
-const newOrder = await createOrder(order);
+// const newOrder = await createOrder(order);
 
 
-return redirect(`/order/${newOrder.id}`);
+// return redirect(`/order/${newOrder.id}`);
+return null;
+
 }
 
 export default CreateOrder;
