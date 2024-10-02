@@ -59,7 +59,7 @@ function CreateOrder() {
           <div>
             <input type="tel" name="phone" required className="input"/>
           </div>
-          { formErrors?.phone && <p>{formErrors.phone}</p>}
+          {formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
 
         <div>
@@ -88,7 +88,7 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name= 'cart' value={JSON.stringify(cart)} />
-          <Button disabled={isSubmitting} 
+          <Button type='prime' disabled={isSubmitting} 
           >
             {isSubmitting ? "Placing Order..."  : "Order Now"}
             </Button>
