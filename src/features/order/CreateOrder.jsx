@@ -45,36 +45,36 @@ function CreateOrder() {
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order? Let's go!</h2>
+    <div className="py-6 px-4">
+      <h2 className="text-xl mb-6 font-semibold">Ready to order? Let's go!</h2>
 
       <Form method="POST">
-        <div>
-          <label>First Name</label>
+        <div className="mb-5 flex flex-col sm:flex-grow  gap-2">
+          <label className="sm:basis-10">First Name</label>
           <input type="text" name="customer"  className="input" required />
         </div>
 
-        <div>
-          <label>Phone number</label>
+        <div className="mb-5 flex flex-col sm:flex-grow  gap-2">
+          <label className="sm:basis-10">Phone number</label>
           <div>
             <input type="tel" name="phone" required className="input"/>
           </div>
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
+          {formErrors?.phone && <p className="mt-2 text-red-100 bg-red-700 rounded-md text-sm p-2">{formErrors.phone}</p>}
         </div>
 
-        <div>
-          <label>Address</label>
+        <div className="mb-5 flex flex-col sm:flex-grow  gap-2">
+          <label className="sm:basis-10">Address</label>
           <div>
             <input 
             type="text" 
             name="address"
             required 
-            className="input"
+            className="input w-full"
              />
           </div>
         </div>
 
-        <div>
+        <div className="mb-12 flex items-center gap-5">
           <input
             type="checkbox"
             name="priority"
@@ -83,12 +83,12 @@ function CreateOrder() {
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label htmlFor="priority" className="font-medium">Want to yo give your order priority?</label>
         </div>
 
         <div>
           <input type="hidden" name= 'cart' value={JSON.stringify(cart)} />
-          <Button type='prime' disabled={isSubmitting} 
+          <Button type='primary' disabled={isSubmitting} 
           >
             {isSubmitting ? "Placing Order..."  : "Order Now"}
             </Button>
