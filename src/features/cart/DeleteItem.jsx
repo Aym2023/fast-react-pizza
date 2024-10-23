@@ -9,7 +9,6 @@ function DeleteItem({pizzaId}) {
     return (
         <div>
      <Button type='small' onClick={()=> dispatch(deleteItem(pizzaId))}>Delete</Button>
-
         </div>
     )
 }
