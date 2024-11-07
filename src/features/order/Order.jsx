@@ -8,6 +8,7 @@ import {
   formatDate,
 } from "../../utilites/helpers";
 import OrderItem from "./OrderItem";
+import OrderUpdate from "./OrderUpdate";
 
 
 function Order() {
@@ -22,7 +23,6 @@ function Order() {
    }, 
    [fetcher]
   );
-   console.log(fetcher.data);
 
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
@@ -78,6 +78,7 @@ function Order() {
         {priority && <p className='text-sm text-stone-600 font-semibold'>Price priority: {formatCurrency(priorityPrice)}</p>}
         <p className='text-sm text-stone-600 font-bold'>To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}</p>
       </div>
+      {!priority && <OrderUpdate order={order} />}
     </div>
   );
 }
